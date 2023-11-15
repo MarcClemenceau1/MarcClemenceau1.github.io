@@ -1,0 +1,71 @@
+html, body {
+	margin: 0px;
+	 justify-content: center;
+  background-color: #ffffff
+}
+canvas {
+  /* display: block; */
+}
+
+
+
+#content {
+	
+}
+
+.text-zone {
+}
+
+.page-title {
+	
+}
+
+a {
+  color: #1f4ba3;
+  font-weight: bold;
+}
+
+header {
+  font-size: 64px;
+  font-weight: bold;
+  color: #1f4ba3;
+}
+
+p {
+	line-height: 1.6;
+	font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+#board {
+  overscroll-behaviour: contain;
+}
+
+.grid-container {
+	padding-top: 50px;
+	margin: 0px auto;
+	max-width: 800px;
+  
+	border-left: 1px solid #c0b4b4;
+	border-top: 10px solid #6c7999;
+	box-shadow: 5px 0px 3px #6c7999;
+  display: grid;
+	font-family: 'Montserrat', sans-serif;
+	
+  place-items: center;
+	align-items: center;
+}
+
+.grid-item {
+	width: 610px;
+}
+
+
+div.boarders {
+	
+	border-top: 1px solid #c0b4b4;
+}
+
+div.padder {
+	
+}
