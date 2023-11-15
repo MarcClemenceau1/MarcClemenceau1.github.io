@@ -21,6 +21,7 @@ provideFormatter = true
     [languages.html.languageServer.configuration.html.format]
     enable = true
     wrapLineLength = 120
+    unformatted = "wbr"
     contentUnformatted = "pre,code,textarea"
     indentInnerHtml = false
     preserveNewLines = true
