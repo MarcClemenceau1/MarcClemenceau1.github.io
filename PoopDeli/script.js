@@ -14,7 +14,7 @@ function sendMessage() {
 }
 
 function fetchResponse(message) {
-    updateChat('Greg', 'Thinking...', 'ai loading');
+    updateChat('Greg', 'Thinking...', 'ai-loading');
     fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
         method: 'POST',
         headers: {
