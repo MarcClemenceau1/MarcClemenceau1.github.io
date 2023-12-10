@@ -1,6 +1,5 @@
-const bread = 's!!!!!!!!!!!!!!!!!!!!!k!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!8!!!!!!!!!!!X!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Z!!!!!!!!!!!!!!!!!!!!!!!!!!B!!!!!!!!!!!!!!!!!!!!!!!!a!!!!!!!!!!!!!!!!O!!!!!!!!!!!!!!!!!!!!!!!!!!!h!!!!!!!!!!!!!!!!!!!!!!!g!!!!!!!!!!!!!!!!B!!!!!!!!!!!!!!!!!!!!!!b!!!!!!!!!!!!!!!!!!!!!!!!!!!!J!!!!!!!!!!!C!!!!!!!!!!!!5!!!!!!!!!!!!e!!!!!!!!!!!!!!!!!!!!!!!!X!!!!!!!!!!!!!!!!!!!!!!!!C!!!!!!!!!!!!!!!!!!!!!o!!!!!!!!!!!!!!!!!!!!!u!!!!!!!!!!!v!!!!!!!!!!!!!!!!!!!!!!!!!!B!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!T!!!!!!!!!!!!!!!!!!3!!!!!!!!!!!!!!!!!!!!!!!!!!B!!!!!!!!!!!!l!!!!!!!!!!!!!!!!!!!b!!!!!!!!!!!!!!!!!!!!k!!!!!!!!!!!!!!!!!!!!!!!!!!!F!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!J!!!!!!!!!!!!!!!!!!!!K!!!!!!!!!!!!!!!!!!!!!!!!!!!K!!!!!!!!!!!!!!!!!!!D!!!!!!!!!!!!!!!!!!!!!Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!s!!!!!!!!!!!!!!!!!!G!!!!!!!!!!!!!!!!!!!!!!!h!!!!!!!!!!!!!!!!!!!!!!!!!!!Z!!!!!!!!!!!!!!!!!!!!!!!!S!!!!!!!!!!!!!!!!!!!!!!!!!!!!!c!!!!!!!!!!!G!!!!!!!!!!!!!!!!!!!a!!!!!!!!!!!!!!!!!!M!!!!!!!!!!!!!!!!!!!!!!!Y!!!!!!!!!!!!!!!!!!!!G!!!!!!!!!!p!!!!!!!!!!!!!!N!!!!!!!!!!!!!!!!H!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!M!!!!!!!!!!!!t!!!!!!!!!!!!!!!!!!!!!!!!!!!';
-const poop = bread.replace(/!/g, "")
 const chatHistory = [];
+
 
 function sendMessage() {
     const inputField = document.getElementById('userInput');
@@ -15,22 +14,30 @@ function sendMessage() {
 
 function fetchResponse(message) {
     updateChat('Greg', 'Thinking...', 'ai-loading');
-    fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+    // Replace VERCEL_URL with your actual Vercel deployment URL
+    const vercelUrl = 'https://talktogreg.vercel.app';
+
+    fetch(vercelUrl, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + poop
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            prompt: message,
-            max_tokens: 150
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a helpful assistant."
+                },
+                {
+                    role: "user",
+                    content: message
+                }
+            ]
         })
     })
     .then(response => response.json())
     .then(data => {
-        const chatDiv = document.getElementById('chat');
-        chatDiv.removeChild(chatDiv.lastChild); // remove loading message
-        const aiMessage = data.choices[0].text.trim();
+        const aiMessage = data.choices[0].message.content;
         updateChat('Greg', aiMessage, 'ai');
         chatHistory.push({ role: 'assistant', content: aiMessage });
     })
