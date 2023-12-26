@@ -15,7 +15,7 @@ function sendMessage() {
 function fetchResponse(message) {
     updateChat('Greg', 'Thinking...', 'ai-loading');
     // Replace VERCEL_URL with your actual Vercel deployment URL
-    const vercelUrl = 'https://talktogreg.vercel.app';
+    const vercelUrl = 'https://us-west1-echo-386517.cloudfunctions.net/TalkToGreg';
 
     fetch(vercelUrl, {
         method: 'POST',
