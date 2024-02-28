@@ -81,8 +81,8 @@ main::-webkit-scrollbar-thumb:hover{
 
 #allInButton {
     position: absolute; /* Absolute positioning within the game-wrapper */
-    bottom: 15px; /* Adjust this value to move the button up or down */
-    left: 940px; /* Adjust this value to move the button left or right */
+    bottom: 65px; /* Adjust this value to move the button up or down */
+    left: 790px; /* Adjust this value to move the button left or right */
     background-color: var(--theme1); /* Primary theme color */
     color: var(--rgbaW, 0.75); /* White text with some transparency */
     padding: 20px 40px; /* Size to match other buttons */
