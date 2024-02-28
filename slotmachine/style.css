@@ -1,0 +1,101 @@
+:root{
+    color-scheme: dark;
+    font-size: 62.5%;
+    --rgbaW: 255,255,255;
+    --rgbaB: 0,0,0;
+    --text: rgba(var(--rgbaW), 0.75);
+    --background: #122333;
+    --container: #182b3c;
+    --theme1: #2eac68;
+    --theme2: #d15397;
+    --nav: rgba(var(--rgbaB), 0.1);
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    color: var(--text);
+    font-size: 1.8rem;
+    outline: none;
+    /*font-family: 'Nunito', sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: var(--background);
+}
+i{
+    font-size: inherit;
+    color: inherit;
+}
+button,a,input[type=submit]{
+    cursor: pointer;
+}
+button{
+    background: transparent;
+}
+/*=============================================================
+                            MAIN
+=============================================================*/
+main{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100dvh;
+    padding: 4rem;
+    background: var(--background);
+    overflow-y: scroll;
+    scrollbar-gutter: stable both-edges;
+}
+main::-webkit-scrollbar{
+    position: absolute;
+    width: 1rem;
+}
+main::-webkit-scrollbar-track{
+    background: transparent;
+}
+main::-webkit-scrollbar-thumb{
+    border-radius: 100vw;
+    background: rgba(255,255,255,0.3);
+}
+main::-webkit-scrollbar-thumb:hover{
+    background: rgba(255,255,255,0.4);
+}
+/*=============================================================
+                            GAME
+=============================================================*/
+
+.game-wrapper{
+    width: 110rem;
+    aspect-ratio: 16 / 10;
+    margin-inline: auto;
+    background: rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    zoom: 1.3;
+}
+#allInButton {
+    position: absolute; /* Absolute positioning within the game-wrapper */
+    bottom: 105px; /* Adjust this value to move the button up or down */
+    left: 1040px; /* Adjust this value to move the button left or right */
+    background-color: var(--theme1); /* Primary theme color */
+    color: var(--rgbaW, 0.75); /* White text with some transparency */
+    padding: 20px 40px; /* Size to match other buttons */
+    font-size: 3rem; /* Font size from the root */
+    border-radius: 10px; /* Rounded edges */
+    border: none; /* No border for a sleek look */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background 0.3s ease-in-out; /* Smooth transition for hover effects */
+    margin: 1rem; /* Some margin around the button */
+    display: block; /* Ensures that the button is properly blocked level */
+    text-align: center; /* Center the text inside the button */
+}
+
+#allInButton:hover {
+    background-color: var(--theme2); /* Secondary theme color for hover state */
+}
+
